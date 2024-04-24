@@ -1,5 +1,5 @@
 using Plots,DifferentialEquations
-c=1/sqrt(2);
+c=1/sqrt(2); #Travelling wave speed
 #c=1
 #c=1/2
 
