@@ -2,10 +2,10 @@ using Plots, DifferentialEquations, Polynomials
 function diff!(du,u,p,t)
 dx,N=p
 for i in 2:N-1
-Di=u[i]
-Dip=u[i+1]
-Dim=u[i-1]
-du[i]=((Di+Dip)*(u[i+1]-u[i])-(Di+Dim)*(u[i]-u[i-1]))/(2*dx^2)+u[i]*(1-u[i])
+Di=u[i] #Diffusivity at mesh point i
+Dip=u[i+1] #Diffusivity at mesh point i+1
+Dim=u[i-1] #Diffusivity at mesh point i-1
+du[i]=((Di+Dip)*(u[i+1]-u[i])-(Di+Dim)*(u[i]-u[i-1]))/(2*dx^2)+u[i]*(1-u[i]) #discretised equation at mesh point i
 end
 i=1
 Di=u[i]
