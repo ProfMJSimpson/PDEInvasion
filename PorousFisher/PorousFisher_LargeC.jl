@@ -85,8 +85,8 @@ p2=plot!(f,0,maximum(T),lw=2,color=:magenta1,xlabel="t",ylabel="X(t)")
 
 
 c=ws
-U0(z)=1/(1+exp(z/c))
-U1(z)=exp(z/c)*(log(2)-3/2+(3+(1+exp(z/c))*(z/c-log(1+exp(z/c))))/(1+exp(z/c)) )/(1+exp(z/c))^2
+U0(z)=1/(1+exp(z/c)) #O(1) term
+U1(z)=exp(z/c)*(log(2)-3/2+(3+(1+exp(z/c))*(z/c-log(1+exp(z/c))))/(1+exp(z/c)) )/(1+exp(z/c))^2 #O(1/c^2) term
 P(z) = U0(z)+(c)^(-2)*U1(z)
 
 
