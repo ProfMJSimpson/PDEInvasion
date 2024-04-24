@@ -21,7 +21,7 @@ sol=solve(prob,alg,saveat=T);
 return sol
 end
 
-L=300 #length of domain
+L=150 #length of domain
 T=0:1:50 #Vector of values of time that the solution will be computed
 xpos=zeros(length(T)) #Vector to store the front position
 dx=0.1 #discretisation
@@ -43,6 +43,7 @@ x=zeros(N);
         u0[i] = UU0
         else
         u0[i] = UU0*exp(-a*(x[i]-X))
+        u0[i] = 0.0
         end
     end
 
