@@ -2,7 +2,7 @@ using Plots, DifferentialEquations, Polynomials
 function diff!(du,u,p,t)
 dx,N=p
 for i in 2:N-1
-du[i]=(u[i+1]-2*u[i]+u[i-1])/dx^2+u[i]*(1-u[i]) 
+du[i]=(u[i+1]-2*u[i]+u[i-1])/dx^2+u[i]*(1-u[i])  #Discretised differential equation
 end
 du[1]=(u[2]-u[1])/dx^2+u[1]*(1-u[1]) 
 du[N]=(u[N-1]-u[N])/dx^2+u[N]*(1-u[N]) 
