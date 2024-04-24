@@ -1,5 +1,5 @@
 using Plots,DifferentialEquations
-c=2;
+c=2; #Travelling wave speed
 
 function diff!(du,u,p,z)
 c=p 
