@@ -49,8 +49,8 @@ p0=scatter(T,LL,legend=false)
 c=-κ*(-4*sol[N-1,end]+sol[N-2,end])/(2*LL[end]*dρ) 
 
 #Perturbation solution
-U0(z)=1-exp(-z*c)
-U1(z)=(exp(-2*z*c)+(2*z*c-1)*exp(-z*c))/2
+U0(z)=1-exp(-z*c) #O(1) solution
+U1(z)=(exp(-2*z*c)+(2*z*c-1)*exp(-z*c))/2 #O(1/c^2) solution
 P(z)=U0(z)+U1(z)/c^2
 
 p1=plot(ρ*LL[1],sol[1:1:N,1],lw=2,color=:blue,xlims=(50,250),ylims=(0,1.1),legend=false)
