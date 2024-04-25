@@ -1,5 +1,5 @@
 using Plots, DifferentialEquations
-ε = 0.1
+ε = 0.5
 c = 1/sqrt(2) - ε
 ε1 = 1.e-10
 UU=1-ε1
@@ -32,7 +32,7 @@ Z[i] = Z[i+1]-dΦ/solp[i]
 Zp[i] = Zp[i+1]-dΦ/P(Φ[i])
 end
 s1=plot(Z,sqrt.(Φ),lw=2,xlims=(-10,0))
-s1=plot!(Zp,sqrt.(Φ),lw=2,color=:red,ls=:dash,xlims=(-10,0),legend=false,xlabel="z",ylabel="U")
+s1=plot!(Zp,sqrt.(Φ),lw=2,ls=:dash,color=:red,xlims=(-10,0),legend=false,xlabel="z",ylabel="U")
 
 
 p3=plot(q1,s1,layout=(2,1))
