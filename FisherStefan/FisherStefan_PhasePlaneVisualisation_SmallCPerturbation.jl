@@ -1,5 +1,5 @@
 using Plots,DifferentialEquations
-c=0.1
+c=1/10
 
 function diff!(du,u,p,z)
 c=p 
@@ -73,11 +73,11 @@ p1=plot!(sol[1,1:ii-1],sol[2,1:ii-1],color=:orangered,lw=2,legend=false,xlims=(-
 #p1=plot!(sol[1,ii:end],sol[2,ii:end],color=:orangered,lw=2,ls=:dash,legend=false,xlims=(-0.2, 1.2),ylims=(-1.2, 0.5))
 
 g = (sol[2,ii]- sol[2,ii-1])/(sol[1,ii]- sol[1,ii-1])
-Vstar = sol[2,ii-1]+g*(sol[1,ii-1])
-κ=-c/Vstar
+Vdagger = sol[2,ii-1]+g*(sol[1,ii-1])
+κ=-c/Vdagger
 
 p1=scatter!([1,0],[0,0],color=:grey0,markersize=10,msw=0)
-p1=scatter!([0],[Vstar],color=:green,markersize=10,msw=0,markershape=:square,xlabel="U",ylabel="V")
+p1=scatter!([0],[Vdagger],color=:green,markersize=10,msw=0,markershape=:square,xlabel="U",ylabel="V")
 
 
 
