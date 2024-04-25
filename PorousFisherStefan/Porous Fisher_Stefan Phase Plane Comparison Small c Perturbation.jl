@@ -1,6 +1,6 @@
 using Plots, DifferentialEquations, Polynomials,QuadGK
 
-c=0.5
+c=1/10 #Wavespeed
 ε = 1.e-10
 UU=1-ε
 m =(-c+sqrt(c^2+4)/2)
@@ -14,9 +14,9 @@ prob = ODEProblem(ode, ψ0, ϕspan)
 alg=Tsit5()
 solp=solve(prob,saveat = Φ)
 q1=plot(Φ,solp,lw=2,xlabel="ϕ",ylabel="ψ",legend=false,xlims=(-0.2, 1.2),ylims=(-1.5, 0.5))
-V0(x)=-1*sqrt(2*x^2+2/3-8*x^(3/2)/3)
-W(x) = quadgk(s->sqrt(2/(3*s)-8*sqrt(s)/3+2*s),x,(1-1e-10))[1]
-V1(x)=-1*W(x)/V0(x)
+V0(x)=-1*sqrt(2*x^2+2/3-8*x^(3/2)/3) #O(1) solution
+W(x) = quadgk(s->sqrt(2/(3*s)-8*sqrt(s)/3+2*s),x,(1-1e-10))[1] #Quadrature 
+V1(x)=-1*W(x)/V0(x) #O(c) solution 
 P(x) = V0(x)+c*V1(x)
 q1=plot!(P,0,1,lw=2,ls=:dash,legend=false)
 display(q1)
